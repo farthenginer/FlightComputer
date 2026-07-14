@@ -11,7 +11,7 @@ TagManager:
   - IgnoredLayer
   - Water
   - UI
-  - 
+  - AttitudeTextLayer
   - 
   - 
   - 
@@ -40,6 +40,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: IgnoredLayer
+    uniqueID: 2404869749
+    locked: 0
+  - name: AttitudeTextLayer
+    uniqueID: 1080819543
     locked: 0
   m_RenderingLayers:
   - Default
