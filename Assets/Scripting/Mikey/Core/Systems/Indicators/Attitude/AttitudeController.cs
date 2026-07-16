@@ -45,9 +45,10 @@ public class AttitudeController : MonoBehaviour
     }
 
     float smoothInput;
-
     float currentPitch;
+
     [SerializeField] float pitchSpeed = 0.5f;
+
     void VerticalMechanism(Vector2 axis)
     {
         smoothInput = Mathf.Lerp(smoothInput, axis.y, 8f * Time.deltaTime);
@@ -58,4 +59,3 @@ public class AttitudeController : MonoBehaviour
         attitudeVerticalMechanism.transform.localPosition = Vector3.forward * currentPitch;
     }
 }
-

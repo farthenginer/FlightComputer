@@ -3,6 +3,7 @@
 */
 
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class TurnCoordinatorSystem : MonoBehaviour
 {
@@ -11,12 +12,23 @@ public class TurnCoordinatorSystem : MonoBehaviour
     [Header("Core Variables")]
 
     [SerializeField] private GameObject turnedAircraft;
+
+    [SerializeField] private SplineContainer slipSkidSplineContainer;
+    [SerializeField] private SplineAnimate slipSkidSplineAnimate;
+
+    [SerializeField] [Range(0, 1)] private float slipSkidSplineTime; // Slid-Skid indicator balance value
+                                                                     // 0; the aircraft has banked dangerously to the left.
+                                                                     // 0.5; normal value (recommenden)
+                                                                     // 1; the aircraft has banked dangerously to the right.
+
     #endregion
 
     private void Update()
     {
         Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        AircraftRotation(axis.x);       
+        AircraftRotation(axis.x);
+
+        SlipSkidIndicator(slipSkidSplineTime);
     }
 
     // Aircraft Z rotation will be between 15 and 35 degrees.
@@ -49,5 +61,14 @@ public class TurnCoordinatorSystem : MonoBehaviour
             currentRoll = Mathf.Lerp(currentRoll, 0, 5 * Time.deltaTime);
         }
         turnedAircraft.transform.localRotation = Quaternion.Euler(90,0,-currentRoll);
+    }
+
+    [SerializeField] float slipSkidSmoothValue;
+    private void SlipSkidIndicator(float value)
+    {
+        slipSkidSmoothValue = Mathf.Lerp(slipSkidSmoothValue, value, 2 * Time.deltaTime); //Apply the value fluently
+
+        slipSkidSplineAnimate.Container = slipSkidSplineContainer;
+        slipSkidSplineAnimate.NormalizedTime = slipSkidSmoothValue;
     }
 }
