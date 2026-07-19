@@ -67,7 +67,6 @@ public class TurnCoordinatorSystem : MonoBehaviour
     private void SlipSkidIndicator(float value)
     {
         slipSkidSmoothValue = Mathf.Lerp(slipSkidSmoothValue, value, 2 * Time.deltaTime); //Apply the value fluently
-
         slipSkidSplineAnimate.Container = slipSkidSplineContainer;
         slipSkidSplineAnimate.NormalizedTime = slipSkidSmoothValue;
     }
