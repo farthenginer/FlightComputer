@@ -63,27 +63,27 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a3c5f462091d48b40b72825c1ae83bbc, type: 3}
   _gpwsClips:
   - sound: 0
-    clip: {fileID: 8300000, guid: 3a30558130ed48744b9210e7cbe7dfe4, type: 3}
+    clip: {fileID: 8300000, guid: 976cdc2ff67ba50439862c860f298b80, type: 3}
   - sound: 1
-    clip: {fileID: 8300000, guid: dca79080b18b7374fbaf78203e9afa80, type: 3}
+    clip: {fileID: 8300000, guid: 3db0e43d54b3fd94db0b41cca6ebdc5e, type: 3}
   - sound: 2
-    clip: {fileID: 8300000, guid: 1fb7730ad430a1c42b2aa58f6a642643, type: 3}
+    clip: {fileID: 8300000, guid: ab80a4a5151c4ea45bfc1970a3f329ec, type: 3}
   - sound: 3
-    clip: {fileID: 8300000, guid: 7ec4ba7182deee1479940393ab0fb477, type: 3}
+    clip: {fileID: 8300000, guid: 460b64532a6cb3e48a7223fd02b0958c, type: 3}
   - sound: 4
-    clip: {fileID: 8300000, guid: fcd57016d7b1a5c48a176284d4dfe72b, type: 3}
+    clip: {fileID: 8300000, guid: d942e1af2c850ef48875bde5ecc794b5, type: 3}
   - sound: 5
-    clip: {fileID: 8300000, guid: f426039342cb4d741864813678aaf1a2, type: 3}
+    clip: {fileID: 8300000, guid: ee85d43c089b37c43bca0606bd223a39, type: 3}
   - sound: 6
-    clip: {fileID: 8300000, guid: 4860eb89a10f46b4ba05c715c36c171f, type: 3}
+    clip: {fileID: 8300000, guid: 0109b53d2d9f875408d4864996929593, type: 3}
   - sound: 7
-    clip: {fileID: 8300000, guid: b884cc4adf01ac247a4087e842a9499d, type: 3}
+    clip: {fileID: 8300000, guid: 1e7050b57b32a494289b2edee5c81e0e, type: 3}
   - sound: 8
-    clip: {fileID: 8300000, guid: e81c392877243a545a030fe34bb68a36, type: 3}
+    clip: {fileID: 8300000, guid: b4474301ae13ad041bd539ada59d066a, type: 3}
   - sound: 9
-    clip: {fileID: 8300000, guid: 17f12510c8ab34744be06cbb695ba0e4, type: 3}
+    clip: {fileID: 8300000, guid: 5643ad1188edd1e48aa249bf5273153c, type: 3}
   - sound: 10
-    clip: {fileID: 8300000, guid: 3ffd4d23f94e57944a58eb69e508a9fc, type: 3}
+    clip: {fileID: 8300000, guid: 4c4e8fb8d944ce14998758b11f4adbd5, type: 3}
   - sound: 11
     clip: {fileID: 8300000, guid: 77dad98045275fa4cad59315971c5b5a, type: 3}
   - sound: 12

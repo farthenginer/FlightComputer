@@ -716,6 +716,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 957440f8975f289489df7f22b94c8257, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 63ca06797d5dcf54387e2ebcafea848e, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ebb37d0f20186f4b8c5c0389f02af92, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b2ba540414204254ea77533af25b16dd, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69a7444578deac545b98588e03312c8d, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f66a7322d8c808044bc33e64635a8e58, type: 3}
+    - target: {fileID: 7997060780712979457, guid: bb567a53ed98be64f8c482137351fad5, type: 3}
+      propertyPath: _tcasClips.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b2e133ae32850c41964929ac5d1f6ba, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -848,7 +876,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.93470955, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1088,7 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
