@@ -48,19 +48,19 @@ MonoBehaviour:
   _source: {fileID: 4631257665010087945}
   _tcasClips:
   - sound: 0
-    clip: {fileID: 8300000, guid: 1cdbbfbfe25dc4648a72417cbd30c0d6, type: 3}
+    clip: {fileID: 8300000, guid: 957440f8975f289489df7f22b94c8257, type: 3}
   - sound: 1
-    clip: {fileID: 8300000, guid: ae55fcd26d646a74b95477629ccd1877, type: 3}
+    clip: {fileID: 8300000, guid: 63ca06797d5dcf54387e2ebcafea848e, type: 3}
   - sound: 2
-    clip: {fileID: 8300000, guid: ce53743f8e03dd146b0a3ffceea570a4, type: 3}
+    clip: {fileID: 8300000, guid: 9ebb37d0f20186f4b8c5c0389f02af92, type: 3}
   - sound: 3
-    clip: {fileID: 8300000, guid: 9768a40c998453841ae2c8de19e46fbf, type: 3}
+    clip: {fileID: 8300000, guid: b2ba540414204254ea77533af25b16dd, type: 3}
   - sound: 4
-    clip: {fileID: 8300000, guid: 9d830f4cd9ec9b544a8f55dfdec06f22, type: 3}
+    clip: {fileID: 8300000, guid: 69a7444578deac545b98588e03312c8d, type: 3}
   - sound: 5
-    clip: {fileID: 8300000, guid: d13388a612805cd45a76b5926f5dee7d, type: 3}
+    clip: {fileID: 8300000, guid: f66a7322d8c808044bc33e64635a8e58, type: 3}
   - sound: 6
-    clip: {fileID: 8300000, guid: a3c5f462091d48b40b72825c1ae83bbc, type: 3}
+    clip: {fileID: 8300000, guid: 0b2e133ae32850c41964929ac5d1f6ba, type: 3}
   _gpwsClips:
   - sound: 0
     clip: {fileID: 8300000, guid: 976cdc2ff67ba50439862c860f298b80, type: 3}

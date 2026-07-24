@@ -748,9 +748,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttitudeController
   attitudeRotationMechanism: {fileID: 7340160828624926986}
   attitudeVerticalMechanism: {fileID: 1882409765152008021}
-  pitchSpeed: 0.2
-  rotationSpeed: 50
-  rollSpeed: 80
+  rotationSpeed: 8
+  rollSpeed: 20
+  pitchSpeed: 0.15
 --- !u!1 &6206582706975577480
 GameObject:
   m_ObjectHideFlags: 0
