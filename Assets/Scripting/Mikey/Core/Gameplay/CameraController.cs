@@ -3,20 +3,54 @@
 */
 
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed;
+    #region Core Variables
+    
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float minZoom = 3f;
+    [SerializeField] private float maxZoom = 20f;
 
+    private Vector3 dragOrigin;
+    Camera cam;
+    
+    #endregion
+
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
     private void Update()
     {
-        if (!Input.GetMouseButton(2))
+        DragCamera();
+        ZoomCamera();
+    }
+
+    private void DragCamera()
+    {
+        if (Input.GetMouseButtonDown(2))
+        {
+            dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        if (Input.GetMouseButton(2))
+        {
+            Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
+            difference.z = 0f; //Camera z clamp
+            cam.transform.position += difference;
+        }
+    }
+
+    private void ZoomCamera()
+    {
+        float scroll = Input.mouseScrollDelta.y;
+        if (scroll == 0)
             return;
-
-        float x = Input.GetAxis("Mouse X");
-        float y = Input.GetAxis("Mouse Y");
-
-        Vector3 movement = new Vector3(x, y, 0);
-        transform.position += -movement * _movementSpeed * Time.deltaTime;
+        cam.orthographicSize -= scroll * moveSpeed;
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
     }
 }
+
