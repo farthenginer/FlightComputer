@@ -3,6 +3,7 @@
 */
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioEngine : MonoBehaviour
 {
@@ -75,6 +76,13 @@ public class GPWS_AlertClip
 
 public class AudioPool
 {
+    // Type List
+    public enum SoundTypes
+    {
+        TCAS,
+        GPWS
+    }
+
     //GPWS SFX List
     public enum GPWS_Sounds
     {

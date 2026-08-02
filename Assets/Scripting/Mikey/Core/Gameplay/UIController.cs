@@ -6,20 +6,40 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    //instance 
+    public static UIController instance;
     #region UI Variables
     
     [SerializeField] private GameObject _rcCanvasPrefab;
     [SerializeField] private Camera _camera;
     [SerializeField] private Vector2 _additionalCanvasOffset;
+
+    [SerializeField] private GameObject _addCanvasPrefab;
+
     #endregion
 
     #region Canvas Variables
     
     private bool _canvasIsOpen;
+    public bool _canvasPermission = true;
     private GameObject _cachedCanvas;
 
+    Vector2 _cachedRCPosition;
+
     #endregion
-    
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this; //instance
+        }
+        else
+        {
+            Destroy(instance);
+            instance = this;
+        }
+    }
     void Update()
     {
         RightClickCanvas();
@@ -33,6 +53,11 @@ public class UIController : MonoBehaviour
             RightCanvasCall(_position);
         }
     }
+
+    /// <summary>
+    /// Create activity menu with right click.
+    /// </summary>
+    /// <param name="position">Guest aircraft reference position</param> 
     private void RightCanvasCall(Vector2 position)
     {
         if (_canvasIsOpen)
@@ -40,31 +65,59 @@ public class UIController : MonoBehaviour
             Destroy(_cachedCanvas);
             _canvasIsOpen = false;
         }
+        if (!_canvasPermission) //Turn on from AC
+            return;
 
         var newCanvas = Instantiate(_rcCanvasPrefab, (position + _additionalCanvasOffset), Quaternion.identity);
         newCanvas.GetComponent<Canvas>().worldCamera = _camera;
         newCanvas.GetComponent<RCInitializer>().Initialize(AddButtonPressed, RemoveButtonPressed);
 
+        _cachedRCPosition = position;
         _cachedCanvas = newCanvas;
         _canvasIsOpen = true;
+        _canvasPermission = true;
+
+        try
+        {
+            Invoke(nameof(DestroyRcCanvas), 3);
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+
+    private void DestroyRcCanvas()
+    {
+        CancelInvoke(nameof(DestroyRcCanvas));
+
+        Destroy(_cachedCanvas);
+        _canvasIsOpen = false;
     }
 
     #region Buttons
+
     private void AddButtonPressed()
     {
-        //destroy canvas
-        Destroy(_cachedCanvas);
-        _canvasIsOpen = false;
+        DestroyRcCanvas(); //destroy
+        _canvasPermission = false;
 
-        //startup
+        CreateAircraftPopUp caPopup =  Instantiate(_addCanvasPrefab, null).GetComponent<CreateAircraftPopUp>();
+        caPopup.Initialize(_cachedRCPosition);
     }
+
     private void RemoveButtonPressed()
     {
-        //destroy canvas
-        Destroy(_cachedCanvas);
-        _canvasIsOpen = false;
+        DestroyRcCanvas(); //destroy
 
-        //startup
+        //Remove//
     }
+
     #endregion
+
+    public void CloseAddCanvas(GameObject canvas)
+    {
+        Destroy(canvas);
+        _canvasPermission = true;
+    }
 }
