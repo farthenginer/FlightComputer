@@ -32,16 +32,16 @@ public class TCASAircraftModel : MonoBehaviour
         switch (_config.threatLevel)
         {
             case TCASConfiguration.threatLevel.noThreat:
-                _threatSprite.sprite = TCASIndicatorSystem.instance._threatSpriteList[0];
+                _threatSprite.sprite = TCASIndicatorSystem.Instance._threatSpriteList[0];
                 break;
             case TCASConfiguration.threatLevel.proximateThreat:
-                _threatSprite.sprite = TCASIndicatorSystem.instance._threatSpriteList[1];
+                _threatSprite.sprite = TCASIndicatorSystem.Instance._threatSpriteList[1];
                 break;
             case TCASConfiguration.threatLevel.potentialThreat:
-                _threatSprite.sprite = TCASIndicatorSystem.instance._threatSpriteList[2];
+                _threatSprite.sprite = TCASIndicatorSystem.Instance._threatSpriteList[2];
                 break;
             case TCASConfiguration.threatLevel.collisionThreat:
-                _threatSprite.sprite = TCASIndicatorSystem.instance._threatSpriteList[3];   
+                _threatSprite.sprite = TCASIndicatorSystem.Instance._threatSpriteList[3];   
                 break;
         }
         _actionStatusImg.sprite = GetActionSprite(_config.action, _config.threatLevel);
@@ -54,12 +54,12 @@ public class TCASAircraftModel : MonoBehaviour
         if (_status == TCASConfiguration.actionStatus.none)
             return null;
 
-        List<Sprite> _actionList = TCASIndicatorSystem.instance._actionSpriteList;
+        List<Sprite> _actionList = TCASIndicatorSystem.Instance._actionSpriteList;
 
         switch (_level)
         {
             case TCASConfiguration.threatLevel.noThreat:
-                //null
+                return null;
             case TCASConfiguration.threatLevel.proximateThreat:
                 return _status == TCASConfiguration.actionStatus.climb ? _actionList[0] : _actionList[1];
 
@@ -75,8 +75,8 @@ public class TCASAircraftModel : MonoBehaviour
 
     public string GetAltitudeDifference(int value)
     {
-        char[] _integerValue = value.ToString().ToCharArray();
-        string _value = value >= 0 ? $"+{_integerValue[0]}{_integerValue[1]}" : $"-{_integerValue[0]}{_integerValue[1]}";
-        return _value;
+        int displayValue = Mathf.Clamp(Mathf.Abs(value), 0, 99);
+        string sign = value >= 0 ? "+" : "-";
+        return $"{sign}{displayValue:D2}";
     }
 }

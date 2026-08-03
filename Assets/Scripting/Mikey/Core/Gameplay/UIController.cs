@@ -4,10 +4,8 @@
 
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class UIController : Singleton<UIController>
 {
-    //instance 
-    public static UIController instance;
     #region UI Variables
     
     [SerializeField] private GameObject _rcCanvasPrefab;
@@ -28,18 +26,6 @@ public class UIController : MonoBehaviour
 
     #endregion
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this; //instance
-        }
-        else
-        {
-            Destroy(instance);
-            instance = this;
-        }
-    }
     void Update()
     {
         RightClickCanvas();

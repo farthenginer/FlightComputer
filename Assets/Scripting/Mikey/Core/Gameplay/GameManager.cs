@@ -4,10 +4,8 @@
 
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-
-    public static GameManager instance;
 
     #region Core Variables
 
@@ -28,17 +26,10 @@ public class GameManager : MonoBehaviour
         northeast
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this; //instance
-        }
-        else
-        {
-            Destroy(instance);
-            instance = this;
-        }
+        base.Awake();
+        //initialize
     }
 
     public void CreateAircraft(GuestAircraftInitData data, Vector2 position)

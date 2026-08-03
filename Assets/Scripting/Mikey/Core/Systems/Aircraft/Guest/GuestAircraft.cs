@@ -31,6 +31,7 @@ public class GuestAircraft : MonoBehaviour
 
     public GuestAircraftInitData _data;
     public bool initialized;
+    public bool movePermission;
 
     public GameManager.directions Direction;
 

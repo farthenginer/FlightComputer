@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f602ef3a70cac4487363a3db37c49e, type: 3}
   m_Name: TCASConfig
   m_EditorClassIdentifier: Assembly-CSharp::TCASObject
-  radarRange: 100
-  radarScanRate: 0.2
-  ThreatThreshold: 0
-  proximateThreshold: 0
-  potentialThreshold: 0
-  collisionThreshold: 0
+  radarRange: 68
+  radarScanRate: 1
+  ThreatThreshold: 6.67
+  proximateThreshold: 50
+  potentialThreshold: 30
+  collisionThreshold: 12

@@ -39,12 +39,12 @@ public class CreateAircraftPopUp : MonoBehaviour
             direction = _direction
         };
 
-        GameManager.instance.CreateAircraft(_guestAircraft, _cachedPosition);
+        GameManager.Instance.CreateAircraft(_guestAircraft, _cachedPosition);
         ClosePopUp();
     }
 
     private void ClosePopUp()
     {
-        UIController.instance.CloseAddCanvas(gameObject);
+        UIController.Instance.CloseAddCanvas(gameObject);
     }
 }

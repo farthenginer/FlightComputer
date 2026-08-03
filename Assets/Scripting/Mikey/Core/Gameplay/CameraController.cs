@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
 
     private void ZoomCamera()
     {
-        if (!UIController.instance._canvasPermission)
+        if (!UIController.Instance._canvasPermission)
             return;
 
         float scroll = Input.mouseScrollDelta.y;

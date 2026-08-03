@@ -43,7 +43,7 @@ public class AudioEngineUITest : MonoBehaviour
                 {
                     if (Enum.TryParse<AudioPool.TCAS_Sounds>(names[i], out var sound)) //Enum Check
                     {
-                        AudioEngine.audioEngine.PlayTCAS(sound);
+                        AudioEngine.Instance.PlayTCAS(sound);
                         Debug.Log($"Playing: {sound}");
                     }
                 }
@@ -51,7 +51,7 @@ public class AudioEngineUITest : MonoBehaviour
                 {
                     if (Enum.TryParse<AudioPool.GPWS_Sounds>(names[i], out var sound)) //Enum Check
                     {
-                        AudioEngine.audioEngine.PlayGPWS(sound);
+                        AudioEngine.Instance.PlayGPWS(sound);
                         Debug.Log($"Playing: {sound}");
                     }
                 }

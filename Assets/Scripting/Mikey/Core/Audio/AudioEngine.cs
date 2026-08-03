@@ -5,11 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioEngine : MonoBehaviour
+public class AudioEngine : Singleton<AudioEngine>
 {
-    //Instance
-    public static AudioEngine audioEngine;
-
     public AudioSource _source;
 
     public List<TCAS_AlertClip> _tcasClips;
@@ -18,12 +15,9 @@ public class AudioEngine : MonoBehaviour
     Dictionary<AudioPool.TCAS_Sounds, AudioClip> dictionaryTCAS;
     Dictionary<AudioPool.GPWS_Sounds, AudioClip> dictionaryGPWS;
 
-    void Awake()
+    protected override void Awake()
     {
-        if (audioEngine == null)
-        {
-            audioEngine = this; //Instance
-        }
+        base.Awake();
 
         dictionaryTCAS = new Dictionary<AudioPool.TCAS_Sounds, AudioClip>();
 
