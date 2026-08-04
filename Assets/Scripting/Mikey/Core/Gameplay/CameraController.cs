@@ -5,7 +5,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
     #region Core Variables
     
@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float minZoom = 3f;
     [SerializeField] private float maxZoom = 20f;
+
+    public int CurrentZoomLevel;
 
     private Vector3 dragOrigin;
     Camera cam;
@@ -52,8 +54,12 @@ public class CameraController : MonoBehaviour
         float scroll = Input.mouseScrollDelta.y;
         if (scroll == 0)
             return;
+
         cam.orthographicSize -= scroll * moveSpeed;
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+
+        // maxZoom = 0 seviyesi
+        CurrentZoomLevel = Mathf.RoundToInt(maxZoom - cam.orthographicSize);
     }
 }
 

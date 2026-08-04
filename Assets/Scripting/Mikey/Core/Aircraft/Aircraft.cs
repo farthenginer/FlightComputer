@@ -113,7 +113,9 @@ public class Aircraft : MonoBehaviour
     }
 
     // Radar giz
-    private void OnDrawGizmosSelected()
+
+    
+    private void OnDrawGizmos()
     {
         if (tcasObject == null) return;
         Gizmos.color = Color.yellow;

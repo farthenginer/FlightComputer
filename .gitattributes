@@ -169,3 +169,17 @@ Packages/packages-lock.json linguist-generated
 
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
+
+# Exclude generated Shader Graph files from language stats
+*.shadergraph linguist-generated=true
+*.shadersubgraph linguist-generated=true
+
+# Exclude Unity generated metadata
+*.meta linguist-generated=true
+
+# Exclude package cache
+Packages/** linguist-vendored=true
+
+# Exclude third-party assets
+Assets/TextMesh Pro/** linguist-vendored=true
+Assets/Plugins/** linguist-vendored=true
