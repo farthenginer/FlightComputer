@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TCASObject
   radarRange: 68
   radarScanRate: 1
-  ThreatThreshold: 6.67
-  proximateThreshold: 50
-  potentialThreshold: 30
-  collisionThreshold: 12
+  threatThreshold: 0
+  proximateThreshold: 45
+  potentialThreshold: 35
+  collisionThreshold: 20
+  threatAltitudeThreshold: 2000

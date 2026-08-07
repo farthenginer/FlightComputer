@@ -6,10 +6,12 @@ public class TCASObject : ScriptableObject
     //Variables
     public float radarRange;
     public float radarScanRate;
-
+    
     //Thresholds
-    public float ThreatThreshold;
+    public float threatThreshold;
     public float proximateThreshold;
     public float potentialThreshold;
     public float collisionThreshold;
+
+    public float threatAltitudeThreshold;
 }

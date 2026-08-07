@@ -47,19 +47,22 @@ public class TCASAircraftModel : MonoBehaviour
         _actionStatusImg.sprite = GetActionSprite(_config.action, _config.threatLevel);
         _actionValue = (int)_config.altitude;
         _actionValueText.text = GetAltitudeDifference(_actionValue);
+
+        Debug.Log(GetAltitudeDifference(_actionValue));
+        Debug.Log(_actionValue);
     }
 
     public Sprite GetActionSprite(TCASConfiguration.actionStatus _status, TCASConfiguration.threatLevel _level)
     {
-        if (_status == TCASConfiguration.actionStatus.none)
-            return null;
-
         List<Sprite> _actionList = TCASIndicatorSystem.Instance._actionSpriteList;
+
+        if (_status == TCASConfiguration.actionStatus.none)
+            return _actionList[6];
 
         switch (_level)
         {
             case TCASConfiguration.threatLevel.noThreat:
-                return null;
+                return _actionList[6];
             case TCASConfiguration.threatLevel.proximateThreat:
                 return _status == TCASConfiguration.actionStatus.climb ? _actionList[0] : _actionList[1];
 
@@ -75,8 +78,9 @@ public class TCASAircraftModel : MonoBehaviour
 
     public string GetAltitudeDifference(int value)
     {
-        int displayValue = Mathf.Clamp(Mathf.Abs(value), 0, 99);
+        int displayValue = Mathf.Clamp(Mathf.Abs(value) / 100, 0, 99);
         string sign = value >= 0 ? "+" : "-";
+
         return $"{sign}{displayValue:D2}";
     }
 }
