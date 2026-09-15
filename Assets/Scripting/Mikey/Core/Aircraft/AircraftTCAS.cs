@@ -90,7 +90,12 @@ public class AircraftTCAS : MonoBehaviour
     private TCASConfiguration.threatLevel EvaluateThreatLevel(GuestAircraft aircraft)
     {
         float distance = Vector3.Distance(transform.position, aircraft.transform.position);
-
+		if(CalculateClearOfConflict(aircraft, transform))
+		{
+		    Debug.LogWarning("TRUEE");
+			return TCASConfiguration.threatLevel.noThreat;
+		}
+			
         if (Mathf.Abs(aircraft.Altitude - 0) > tcasObject.threatAltitudeThreshold) //min threat altitude
             return TCASConfiguration.threatLevel.noThreat;
 
@@ -103,7 +108,49 @@ public class AircraftTCAS : MonoBehaviour
 
         return TCASConfiguration.threatLevel.noThreat;
     }
+	private bool CalculateClearOfConflict(GuestAircraft aircraft, Transform player)
+	{
+        GameManager.directions direction = aircraft.Direction;
+		
+		float differenceX = player.position.x - aircraft.transform.position.x;
+		float differenceY = player.position.y - aircraft.transform.position.y;
+		
+        switch (direction)
+        {
+            case GameManager.directions.south: //g
+			    return differenceY > 0;
+                break;
 
+            case GameManager.directions.north: //k
+				return differenceY < 0;
+                break;
+
+            case GameManager.directions.west: //b
+			    return differenceX > 0;
+                break;
+
+            case GameManager.directions.east: //d
+				return differenceX < 0;
+                break;
+
+            case GameManager.directions.southwest: //gb
+			    return (differenceX > 0 || differenceY > 0);
+                break;
+
+            case GameManager.directions.northwest: //kb
+			    return (differenceX > 0 || differenceY < 0);
+                break;
+
+            case GameManager.directions.southeast: //gd
+			    return (differenceX < 0 || differenceY > 0);
+                break;
+
+            case GameManager.directions.northeast: //kd
+			    return (differenceX < 0 || differenceY < 0);
+                break;
+        }
+		return false;
+	}
     private IEnumerator DetectionRoutine()
     {
         while (true)
