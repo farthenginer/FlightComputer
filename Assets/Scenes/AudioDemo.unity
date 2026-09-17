@@ -495,6 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   dontDestroyOnLoad: 0
   _guestFactory: {fileID: 671258501}
+  _mikeyDebug: {fileID: 0}
+  _mikeyDebugPrefab: {fileID: 1701296362234695872, guid: 4b2f251e49c2a4da5bda4691621b8394, type: 3}
 --- !u!1 &903861506
 GameObject:
   m_ObjectHideFlags: 0
