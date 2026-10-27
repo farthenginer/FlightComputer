@@ -18,14 +18,12 @@ public class HeadingController : MonoBehaviour
 
     private void Update()
     {
-        HeadingWithMouse();
+        HeadingWithProvider();
     }
-    //Demo
-    float currentZ;
-    private void HeadingWithMouse()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        currentZ -= mouseX * rotationSpeed * Time.deltaTime;
-        headingMechanism.transform.localRotation = Quaternion.Euler(0, currentZ, 0);
-    }
+		
+	private void HeadingWithProvider()
+	{
+	    float heading = FlightComputer.data.provider.Current.Heading;
+		headingMechanism.transform.localRotation = Quaternion.Euler(0, heading, 0);
+	}
 }

@@ -16,12 +16,13 @@ public class AttitudeController : MonoBehaviour
     [SerializeField] private GameObject attitudeVerticalMechanism;
 
     #endregion
-
+	
+	
 
     void Update()
     {
-        Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
+        //Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		Vector2 axis = new Vector2(FlightComputer.data.provider.Current.Roll, FlightComputer.data.provider.Current.Pitch);
         RotationMechanism(axis);
         VerticalMechanism(axis);
     }
